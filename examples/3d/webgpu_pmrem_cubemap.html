@@ -61,7 +61,7 @@
 				controls.update();
 
 				new RGBMLoader()
-					.setPath( './textures/cube/pisaRGBM16/' )
+					.setPath( '/assets/textures/cube/pisaRGBM16/' )
 					.loadCubemap( [ 'px.png', 'nx.png', 'py.png', 'ny.png', 'pz.png', 'nz.png' ], function ( map ) {
 
 						const reflectVec = positionViewDirection.negate().reflect( normalView ).transformDirection( cameraViewMatrix );

@@ -53,11 +53,11 @@
 
 				const textureLoader = new THREE.TextureLoader();
 
-				const normalMapTexture = textureLoader.load( './textures/water/Water_1_M_Normal.jpg' );
+				const normalMapTexture = textureLoader.load( '/assets/textures/water/Water_1_M_Normal.jpg' );
 				normalMapTexture.wrapS = THREE.RepeatWrapping;
 				normalMapTexture.wrapT = THREE.RepeatWrapping;
 
-				const alphaTexture = textureLoader.load( './textures/roughness_map.jpg' );
+				const alphaTexture = textureLoader.load( '/assets/textures/roughness_map.jpg' );
 				alphaTexture.wrapS = THREE.RepeatWrapping;
 				alphaTexture.wrapT = THREE.RepeatWrapping;
 

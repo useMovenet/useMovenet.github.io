@@ -54,12 +54,12 @@
 
 				scene = new THREE.Scene();
 
-				const uvTexture = new THREE.TextureLoader().load( './textures/uv_grid_opengl.jpg' );
+				const uvTexture = new THREE.TextureLoader().load( '/assets/textures/uv_grid_opengl.jpg' );
 
 				const rgbmUrls = [ 'px.png', 'nx.png', 'py.png', 'ny.png', 'pz.png', 'nz.png' ];
 				const texture = await new RGBMLoader()
 					.setMaxRange( 16 )
-					.setPath( './textures/cube/pisaRGBM16/' )
+					.setPath( '/assets/textures/cube/pisaRGBM16/' )
 					.loadCubemapAsync( rgbmUrls );
 
 				texture.name = 'pisaRGBM16';

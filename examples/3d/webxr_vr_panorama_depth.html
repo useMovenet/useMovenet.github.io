@@ -63,7 +63,7 @@
 				const manager = new THREE.LoadingManager();
 				const loader = new THREE.TextureLoader( manager );
 
-				loader.load( './textures/kandao3.jpg', function ( texture ) {
+				loader.load( '/assets/textures/kandao3.jpg', function ( texture ) {
 
 					texture.colorSpace = THREE.SRGBColorSpace;
 					texture.minFilter = THREE.NearestFilter;
@@ -72,7 +72,7 @@
 
 				} );
 
-				loader.load( './textures/kandao3_depthmap.jpg', function ( depth ) {
+				loader.load( '/assets/textures/kandao3_depthmap.jpg', function ( depth ) {
 
 					depth.minFilter = THREE.NearestFilter;
 					depth.generateMipmaps = false;

@@ -51,7 +51,7 @@
 				const rgbmUrls = [ 'px.png', 'nx.png', 'py.png', 'ny.png', 'pz.png', 'nz.png' ];
 				const cube1Texture = new RGBMLoader()
 					.setMaxRange( 16 )
-					.setPath( './textures/cube/pisaRGBM16/' )
+					.setPath( '/assets/textures/cube/pisaRGBM16/' )
 					.loadCubemap( rgbmUrls );
 
 				cube1Texture.generateMipmaps = true;
@@ -59,7 +59,7 @@
 
 				const cube2Urls = [ 'dark-s_px.jpg', 'dark-s_nx.jpg', 'dark-s_py.jpg', 'dark-s_ny.jpg', 'dark-s_pz.jpg', 'dark-s_nz.jpg' ];
 				const cube2Texture = await new THREE.CubeTextureLoader()
-					.setPath( './textures/cube/MilkyWay/' )
+					.setPath( '/assets/textures/cube/MilkyWay/' )
 					.loadAsync( cube2Urls );
 
 				cube2Texture.generateMipmaps = true;

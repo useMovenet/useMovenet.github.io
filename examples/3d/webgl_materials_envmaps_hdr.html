@@ -95,7 +95,7 @@
 
 				const hdrUrls = [ 'px.hdr', 'nx.hdr', 'py.hdr', 'ny.hdr', 'pz.hdr', 'nz.hdr' ];
 				hdrCubeMap = new HDRCubeTextureLoader()
-					.setPath( './textures/cube/pisaHDR/' )
+					.setPath( '/assets/textures/cube/pisaHDR/' )
 					.load( hdrUrls, function () {
 
 						hdrCubeRenderTarget = pmremGenerator.fromCubemap( hdrCubeMap );
@@ -107,7 +107,7 @@
 
 				const ldrUrls = [ 'px.png', 'nx.png', 'py.png', 'ny.png', 'pz.png', 'nz.png' ];
 				ldrCubeMap = new THREE.CubeTextureLoader()
-					.setPath( './textures/cube/pisa/' )
+					.setPath( '/assets/textures/cube/pisa/' )
 					.load( ldrUrls, function () {
 
 						ldrCubeRenderTarget = pmremGenerator.fromCubemap( ldrCubeMap );
@@ -117,7 +117,7 @@
 
 				const rgbmUrls = [ 'px.png', 'nx.png', 'py.png', 'ny.png', 'pz.png', 'nz.png' ];
 				rgbmCubeMap = new RGBMLoader().setMaxRange( 16 )
-					.setPath( './textures/cube/pisaRGBM16/' )
+					.setPath( '/assets/textures/cube/pisaRGBM16/' )
 					.loadCubemap( rgbmUrls, function () {
 
 						rgbmCubeRenderTarget = pmremGenerator.fromCubemap( rgbmCubeMap );

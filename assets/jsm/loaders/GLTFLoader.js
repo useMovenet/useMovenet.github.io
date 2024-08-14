@@ -4728,3 +4728,4 @@ function addPrimitiveAttributes( geometry, primitiveDef, parser ) {
 }
 
 export { GLTFLoader };
+ 

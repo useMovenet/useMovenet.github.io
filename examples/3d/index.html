@@ -183,6 +183,8 @@
 				const folder1 = panel.addFolder( 'Base Actions' );
 				const folder2 = panel.addFolder( 'Additive Action Weights' );
 				const folder3 = panel.addFolder( 'General Speed' );
+                const folder4 = panel.addFolder( 'Skeleton Visibility' ); // Add a new folder for skeleton controls
+                panelSettings.showSkeleton = false; // Initialize the setting for skeleton visibility
 
 				panelSettings = {
 					'modify time scale': 1.0
@@ -227,10 +229,13 @@
 				}
 
 				folder3.add( panelSettings, 'modify time scale', 0.0, 1.5, 0.01 ).onChange( modifyTimeScale );
-
+                folder4.add(panelSettings, 'showSkeleton').onChange(function (value) {
+					skeleton.visible = value; // Toggle skeleton visibility based on checkbox
+				});
 				folder1.open();
 				folder2.open();
 				folder3.open();
+				folder4.open();
 
 				crossFadeControls.forEach( function ( control ) {
 

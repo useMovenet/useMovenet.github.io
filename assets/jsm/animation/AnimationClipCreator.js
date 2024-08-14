@@ -8,7 +8,7 @@ import {
 } from 'three';
 
 class AnimationClipCreator {
-
+//shit
 	static CreateRotationAnimation( period, axis = 'x' ) {
 
 		const times = [ 0, period ], values = [ 0, 360 ];

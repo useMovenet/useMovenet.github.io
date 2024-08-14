@@ -112,11 +112,17 @@
 
                 const rightWrist = pose.keypoints.find(k => k.part === 'rightWrist');
 
-                if (rightWrist.score > 0.5) {
-                    console.log(`Right Wrist Position: x = ${rightWrist.position.x}, y = ${rightWrist.position.y}`);
+                if (rightWrist && rightWrist.score > 0.5) {
+                    const { x, y } = rightWrist.position;
+                    console.log(`Right Wrist Position: x = ${x}, y = ${y}`);
 
-                    cube.rotation.x = (rightWrist.position.y / window.innerHeight) * Math.PI * 2;
-                    cube.rotation.y = (rightWrist.position.x / window.innerWidth) * Math.PI * 2;
+                    // Check for unusual values
+                    if (x !== 0 || y !== 0) {
+                        cube.rotation.x = (y / window.innerHeight) * Math.PI * 2;
+                        cube.rotation.y = (x / window.innerWidth) * Math.PI * 2;
+                    }
+                } else {
+                    console.log('Right wrist not confidently detected.');
                 }
 
                 requestAnimationFrame(detectPose);

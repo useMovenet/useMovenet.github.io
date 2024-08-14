@@ -108,7 +108,7 @@
 			if ( supportOffScreenWebGL ) {
 
 				const offscreen = canvas2.transferControlToOffscreen();
-				const worker = new Worker( 'jsm/offscreen/offscreen.js', { type: 'module' } );
+				const worker = new Worker( '/assets/jsm/offscreen/offscreen.js', { type: 'module' } );
 				worker.postMessage( {
 					drawingSurface: offscreen,
 					width: canvas2.clientWidth,

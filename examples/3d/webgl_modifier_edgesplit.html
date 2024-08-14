@@ -71,7 +71,7 @@
 				scene.add( new THREE.HemisphereLight( 0xffffff, 0x444444, 3 ) );
 
 				new OBJLoader().load(
-					'./models/obj/cerberus/Cerberus.obj',
+					'/assets/models/obj/cerberus/Cerberus.obj',
 					function ( group ) {
 
 						const cerberus = group.children[ 0 ];
@@ -101,7 +101,7 @@
 
 				window.addEventListener( 'resize', onWindowResize );
 
-				new THREE.TextureLoader().load( './models/obj/cerberus/Cerberus_A.jpg', function ( texture ) {
+				new THREE.TextureLoader().load( '/assets/models/obj/cerberus/Cerberus_A.jpg', function ( texture ) {
 
 					map = texture;
 					map.colorSpace = THREE.SRGBColorSpace;

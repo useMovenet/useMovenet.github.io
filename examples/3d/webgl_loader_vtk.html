@@ -57,7 +57,7 @@
 				scene.add( dirLight );
 
 				const loader = new VTKLoader();
-				loader.load( 'models/vtk/bunny.vtk', function ( geometry ) {
+				loader.load( '/assets/models/vtk/bunny.vtk', function ( geometry ) {
 
 					geometry.center();
 					geometry.computeVertexNormals();
@@ -71,7 +71,7 @@
 				} );
 
 				const loader1 = new VTKLoader();
-				loader1.load( 'models/vtk/cube_ascii.vtp', function ( geometry ) {
+				loader1.load( '/assets/models/vtk/cube_ascii.vtp', function ( geometry ) {
 
 					geometry.computeVertexNormals();
 					geometry.center();
@@ -88,7 +88,7 @@
 				} );
 
 				const loader2 = new VTKLoader();
-				loader2.load( 'models/vtk/cube_binary.vtp', function ( geometry ) {
+				loader2.load( '/assets/models/vtk/cube_binary.vtp', function ( geometry ) {
 
 					geometry.computeVertexNormals();
 					geometry.center();
@@ -105,7 +105,7 @@
 				} );
 
 				const loader3 = new VTKLoader();
-				loader3.load( 'models/vtk/cube_no_compression.vtp', function ( geometry ) {
+				loader3.load( '/assets/models/vtk/cube_no_compression.vtp', function ( geometry ) {
 
 					geometry.computeVertexNormals();
 					geometry.center();

@@ -72,7 +72,7 @@
 					.setTranscoderPath( 'jsm/libs/basis/' )
 					.detectSupport( renderer );
 
-				const loader = new GLTFLoader().setPath( 'models/gltf/' );
+				const loader = new GLTFLoader().setPath( '/assets/models/gltf/' );
 				loader.setKTX2Loader( ktx2Loader );
 				loader.setMeshoptDecoder( MeshoptDecoder );
 				loader.load( 'coffeemat.glb', function ( gltf ) {

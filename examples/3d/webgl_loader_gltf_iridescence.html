@@ -62,7 +62,7 @@
 				const rgbeLoader = new RGBELoader()
 					.setPath( 'textures/equirectangular/' );
 
-				const gltfLoader = new GLTFLoader().setPath( 'models/gltf/' );
+				const gltfLoader = new GLTFLoader().setPath( '/assets/models/gltf/' );
 
 				const [ texture, gltf ] = await Promise.all( [
 					rgbeLoader.loadAsync( 'venice_sunset_1k.hdr' ),

@@ -112,10 +112,10 @@
 				const material = new THREE.MeshStandardMaterial();
 
 				new OBJLoader()
-					.setPath( 'models/obj/cerberus/' )
+					.setPath( '/assets/models/obj/cerberus/' )
 					.load( 'Cerberus.obj', function ( group ) {
 
-						const textureLoader = new THREE.TextureLoader().setPath( 'models/obj/cerberus/' );
+						const textureLoader = new THREE.TextureLoader().setPath( '/assets/models/obj/cerberus/' );
 
 						material.roughness = 1;
 						material.metalness = 1;

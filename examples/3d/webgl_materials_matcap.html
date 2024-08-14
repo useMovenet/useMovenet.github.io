@@ -76,10 +76,10 @@
 				// normalmap
 				const loader = new THREE.TextureLoader( manager );
 
-				const normalmap = loader.load( 'models/gltf/LeePerrySmith/Infinite-Level_02_Tangent_SmoothUV.jpg' );
+				const normalmap = loader.load( '/assets/models/gltf/LeePerrySmith/Infinite-Level_02_Tangent_SmoothUV.jpg' );
 
 				// model
-				new GLTFLoader( manager ).load( 'models/gltf/LeePerrySmith/LeePerrySmith.glb', function ( gltf ) {
+				new GLTFLoader( manager ).load( '/assets/models/gltf/LeePerrySmith/LeePerrySmith.glb', function ( gltf ) {
 
 					mesh = gltf.scene.children[ 0 ];
 					mesh.position.y = - 0.25;

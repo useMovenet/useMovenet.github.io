@@ -115,7 +115,7 @@
 				dracoLoader.setDecoderConfig( { type: 'js' } );
 				const loader = new GLTFLoader();
 				loader.setDRACOLoader( dracoLoader );
-				loader.setPath( 'models/gltf/' );
+				loader.setPath( '/assets/models/gltf/' );
 
 				const gltf = await loader.loadAsync( 'LittlestTokyo.glb' );
 

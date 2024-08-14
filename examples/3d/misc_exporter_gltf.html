@@ -418,7 +418,7 @@
 				// Model requiring KHR_mesh_quantization
 				// ---------------------------------------------------------------------
 				const loader = new GLTFLoader();
-				loader.load( 'models/gltf/ShaderBall.glb', function ( gltf ) {
+				loader.load( '/assets/models/gltf/ShaderBall.glb', function ( gltf ) {
 
 					model = gltf.scene;
 					model.scale.setScalar( 50 );
@@ -480,7 +480,7 @@
 					.setTranscoderPath( 'jsm/libs/basis/' )
 					.detectSupport( renderer );
 
-				const gltfLoader = new GLTFLoader().setPath( 'models/gltf/' );
+				const gltfLoader = new GLTFLoader().setPath( '/assets/models/gltf/' );
 				gltfLoader.setKTX2Loader( ktx2Loader );
 				gltfLoader.setMeshoptDecoder( MeshoptDecoder );
 				gltfLoader.load( 'coffeemat.glb', function ( gltf ) {

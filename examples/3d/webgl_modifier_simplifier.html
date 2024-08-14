@@ -59,7 +59,7 @@
 				camera.add( light );
 				scene.add( camera );
 
-				new GLTFLoader().load( 'models/gltf/LeePerrySmith/LeePerrySmith.glb', function ( gltf ) {
+				new GLTFLoader().load( '/assets/models/gltf/LeePerrySmith/LeePerrySmith.glb', function ( gltf ) {
 
 					const mesh = gltf.scene.children[ 0 ];
 					mesh.position.x = - 3;

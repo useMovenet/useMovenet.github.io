@@ -77,9 +77,9 @@
 				const loader = new GLTFLoader();
 				loader.setDRACOLoader( dracoLoader );
 
-				const shadow = new THREE.TextureLoader().load( 'models/gltf/ferrari_ao.png' );
+				const shadow = new THREE.TextureLoader().load( '/assets/models/gltf/ferrari_ao.png' );
 
-				loader.load( 'models/gltf/ferrari.glb', function ( gltf ) {
+				loader.load( '/assets/models/gltf/ferrari.glb', function ( gltf ) {
 
 					const bodyMaterial = new THREE.MeshPhysicalMaterial( {
 						color: 0x000000, metalness: 1.0, roughness: 0.8,

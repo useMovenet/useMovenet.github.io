@@ -52,7 +52,7 @@
 					.setPath( 'textures/equirectangular/' );
 
 				const usdzLoader = new USDZLoader()
-					.setPath( 'models/usdz/' );
+					.setPath( '/assets/models/usdz/' );
 
 				const [ texture, model ] = await Promise.all( [
 					rgbeLoader.loadAsync( 'venice_sunset_1k.hdr' ),

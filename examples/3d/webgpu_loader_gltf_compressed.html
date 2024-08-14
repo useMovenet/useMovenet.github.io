@@ -73,7 +73,7 @@
 				const loader = new GLTFLoader();
 				loader.setKTX2Loader( ktx2Loader );
 				loader.setMeshoptDecoder( MeshoptDecoder );
-				loader.load( 'models/gltf/coffeemat.glb', function ( gltf ) {
+				loader.load( '/assets/models/gltf/coffeemat.glb', function ( gltf ) {
 
 					const gltfScene = gltf.scene;
 					gltfScene.position.y = - .8;

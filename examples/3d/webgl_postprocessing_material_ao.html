@@ -113,7 +113,7 @@
 				const groundMaterial = new MeshPostProcessingMaterial( { color: 0x7f7f7f, envMapIntensity: sceneParameters.envMapIntensity, aoPassMap: gtaoPass.gtaoMap } );
 				const objectMaterial = new MeshPostProcessingMaterial( { color: 0xffffff, roughness: 0.5, metalness: 0.5, envMapIntensity: sceneParameters.envMapIntensity, aoPassMap: gtaoPass.gtaoMap } );
 				const emissiveMaterial = new MeshPostProcessingMaterial( { color: 0, emissive: 0xffffff, aoPassMap: gtaoPass.gtaoMap } );
-				plyLoader.load( 'models/ply/binary/Lucy100k.ply', ( geometry ) => {
+				plyLoader.load( '/assets/models/ply/binary/Lucy100k.ply', ( geometry ) => {
 
 					geometry.computeVertexNormals();
 					const lucy = new THREE.Mesh( geometry, objectMaterial );

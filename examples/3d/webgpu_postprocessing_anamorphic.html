@@ -60,7 +60,7 @@
 				scene.environment = cube1Texture;
 				scene.backgroundNode = cubeTexture( cube1Texture ).mul( viewportTopLeft.distance( .5 ).oneMinus().remapClamp( .1, 4 ) ).saturation( 0 );
 
-				const loader = new GLTFLoader().setPath( 'models/gltf/DamagedHelmet/glTF/' );
+				const loader = new GLTFLoader().setPath( '/assets/models/gltf/DamagedHelmet/glTF/' );
 				loader.load( 'DamagedHelmet.gltf', function ( gltf ) {
 
 					scene.add( gltf.scene );

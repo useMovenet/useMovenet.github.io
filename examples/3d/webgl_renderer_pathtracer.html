@@ -156,8 +156,8 @@
 				// only smooth when not rendering with flat colors to improve processing time
 				const ldrawPromise =
 					new LDrawLoader()
-						.setPath( 'models/ldraw/officialLibrary/' )
-						.loadAsync( 'models/7140-1-X-wingFighter.mpd_Packed.mpd', onProgress )
+						.setPath( '/assets/models/ldraw/officialLibrary/' )
+						.loadAsync( '/assets/models/7140-1-X-wingFighter.mpd_Packed.mpd', onProgress )
 						.then( function ( legoGroup ) {
 
 							// Convert from LDraw coordinates: rotate 180 degrees around OX

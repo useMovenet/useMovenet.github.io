@@ -45,7 +45,7 @@
 			init();
 
 			const loader = new BVHLoader();
-			loader.load( 'models/bvh/pirouette.bvh', function ( result ) {
+			loader.load( '/assets/models/bvh/pirouette.bvh', function ( result ) {
 
 				const skeletonHelper = new THREE.SkeletonHelper( result.skeleton.bones[ 0 ] );
 

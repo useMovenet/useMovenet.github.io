@@ -138,7 +138,7 @@
 
 				// Car
 
-				const shadow = new THREE.TextureLoader().load( 'models/gltf/ferrari_ao.png' );
+				const shadow = new THREE.TextureLoader().load( '/assets/models/gltf/ferrari_ao.png' );
 
 				const dracoLoader = new DRACOLoader();
 				dracoLoader.setDecoderPath( 'jsm/libs/draco/gltf/' );
@@ -146,7 +146,7 @@
 				const loader = new GLTFLoader();
 				loader.setDRACOLoader( dracoLoader );
 
-				loader.load( 'models/gltf/ferrari.glb', function ( gltf ) {
+				loader.load( '/assets/models/gltf/ferrari.glb', function ( gltf ) {
 
 					const carModel = gltf.scene.children[ 0 ];
 

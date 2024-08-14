@@ -44,7 +44,7 @@
 				scene = new THREE.Scene();
 				scene.background = new THREE.Color( 0x333333 );
 
-				new GLTFLoader().load( 'models/gltf/LeePerrySmith/LeePerrySmith.glb', function ( gltf ) {
+				new GLTFLoader().load( '/assets/models/gltf/LeePerrySmith/LeePerrySmith.glb', function ( gltf ) {
 
 					const mesh = gltf.scene.children[ 0 ];
 					mesh.scale.setScalar( .1 );

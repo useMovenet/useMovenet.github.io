@@ -8,28 +8,20 @@
         body {
             margin: 0;
             overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #000;
         }
-        #canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
+        canvas {
+            display: block;
         }
     </style>
 </head>
 <body>
     <video id="video" playsinline style="display: none;"></video>
-    <canvas id="canvas"></canvas>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/posenet"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="/assets/js/threejs1.js"></script>
-    <script src="/assets/js/3d.js"></script>
-    <script src="/assets/js/posenet1.js"></script>
+    <script src="/assets/js/posenet.js"></script>
+    <script src="/assets/js/threejs.js"></script>
+    <script src="/assets/js/intergration.js"></script>
     <script>
         // JS code will go here
     </script>

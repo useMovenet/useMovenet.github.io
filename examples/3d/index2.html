@@ -14,9 +14,6 @@
 				color: #888;
 			}
 		</style>
-
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.0.0/video-js.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.0.0/video.min.js"></script>
 	</head>
 	<body>
 		<div id="container"></div>
@@ -51,7 +48,7 @@
 			import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
 			let scene, renderer, camera, stats;
-			let model1, skeletonHelper, skeleton, mixer, clock;
+			let model, skeletonHelper, skeleton, mixer, clock;
 
 			const crossFadeControls = [];
 
@@ -106,20 +103,20 @@
 				const loader = new GLTFLoader();
 				loader.load( '../../assets/models/gltf/Xbot.glb', function ( gltf ) {
 
-					model1 = gltf.scene;
-					scene.add( model1 );
+					model = gltf.scene;
+					scene.add( model );
                     const mesh = gltf.scene.children[ 0 ];
 skeletonHelper = new THREE.SkeletonHelper(mesh);
 console.log(skeletonHelper.bones)
 		
-                    console.log('model',model1)
-					model1.traverse( function ( object ) {
+                    console.log('model',model)
+					model.traverse( function ( object ) {
 
 						if ( object.isMesh ) object.castShadow = true;
 
 					} );
 
-					skeleton = new THREE.SkeletonHelper( model1 );
+					skeleton = new THREE.SkeletonHelper( model );
 					skeleton.visible = false;
 					scene.add( skeleton );
                     logAllBones(skeleton);
@@ -128,7 +125,7 @@ console.log(skeletonHelper.bones)
                     
 
 					const animations = gltf.animations;
-					mixer = new THREE.AnimationMixer( model1 );
+					mixer = new THREE.AnimationMixer( model );
 
 					numAnimations = animations.length;
 
@@ -654,61 +651,6 @@ console.log(skeletonHelper.bones)
 
 <script src="/assets/js/app.js"></script>
 <script src="/assets/js/tracker.js"></script>
-<script>
 
-    let source = 'camera'; // camera|video|stream		
-    let sourceVideo = '';
-    let defaultVideo = 'mp4/whatislove.mp4';
-    let defaultStream = 'https://multiplatform-f.akamaihd.net/i/multi/will/bunny/big_buck_bunny_,640x360_400,640x360_700,640x360_1000,950x540_1500,.f4v.csmil/master.m3u8';
-    let model = 'MoveNetSinglePoseLightning';
-    /*
-        ^^^ available pre-defined models:
-            
-            - MoveNetSinglePoseLightning				
-            - MoveNetSinglePoseThunder
-            - MoveNetMultiPoseLightning
-            - PoseNetMobileNetV1
-            - PoseNetResNet50
-            - BlazePoseLite
-            - BlazePoseHeavy
-            - BlazePoseFull
-     */
-
-    // initialize app
-    app.init();
-    
-    // initialize AI tracker model
-    tracker.setModel(model);
-    tracker.autofit = true; // enable auto resize/fit
-
-    // set-up hooks
-    tracker.on('statuschange', function(msg) {
-        app.updateStatus(msg);
-    });
-    tracker.on('beforeupdate', function(poses) {
-        app.updateDebug(poses);
-        app.updateCounter(poses);
-    });
-
-    // config		
-    tracker.elCanvas = '#canvas';
-    tracker.elVideo = '#video';
-    tracker.el3D = '#view_3d';
-    tracker.pointWidth = 6;
-    tracker.pointRadius = 8;
-
-    // run predictions
-    tracker.run(source);
-</script>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-9LZ7CG7YSD"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-    gtag('config', 'G-9LZ7CG7YSD');
-</script>
 	</body>
 </html>

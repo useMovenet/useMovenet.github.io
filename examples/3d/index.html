@@ -111,7 +111,7 @@
                     logAllBones(skeleton);
                     addBoneRotationControls(skeleton);
 
-
+                    
 
 					const animations = gltf.animations;
 					mixer = new THREE.AnimationMixer( model );
@@ -187,7 +187,8 @@
 				const folder1 = panel.addFolder( 'Base Actions' );
 				const folder2 = panel.addFolder( 'Additive Action Weights' );
 				const folder3 = panel.addFolder( 'General Speed' );
-                const folder4 = panel.addFolder( 'Skeleton Visibility' ); // Add a new folder for skeleton controls
+                const folder4 = panel.addFolder( 'Skeleton Visibility' );
+                const folder5 = panel.addFolder( 'Bone Rotation' ); // Add a new folder for skeleton controls
                 //panelSettings.showSkeleton = false; // Initialize the setting for skeleton visibility
 
 				panelSettings = {
@@ -234,13 +235,12 @@
 
 				folder3.add( panelSettings, 'modify time scale', 0.0, 1.5, 0.01 ).onChange( modifyTimeScale );
                 panelSettings.showSkeleton = false; // Initialize the setting for skeleton visibility
-                folder4.add(panelSettings, 'showSkeleton').onChange(function (value) {
-					skeleton.visible = value; // Toggle skeleton visibility based on checkbox
-				});
+                folder4.add(panelSettings, 'showSkeleton').onChange(function (value) {skeleton.visible = value;});
 				folder1.open();
 				folder2.open();
 				folder3.open();
 				folder4.open();
+                folder5.open();
 
 				crossFadeControls.forEach( function ( control ) {
 
@@ -407,24 +407,6 @@
         }
     });
 }
-            function addBoneRotationControls(skeleton) {
-    const boneControls = {};
-    skeleton.traverse(function (bone) {
-        if (bone.isBone) {
-            boneControls[bone.name] = { rotationX: bone.rotation.x, rotationY: bone.rotation.y, rotationZ: bone.rotation.z };
-            const folder = panel.addFolder(bone.name);
-            folder.add(boneControls[bone.name], 'rotationX', -Math.PI, Math.PI).onChange(value => {
-                bone.rotation.x = value;
-            });
-            folder.add(boneControls[bone.name], 'rotationY', -Math.PI, Math.PI).onChange(value => {
-                bone.rotation.y = value;
-            });
-            folder.add(boneControls[bone.name], 'rotationZ', -Math.PI, Math.PI).onChange(value => {
-                bone.rotation.z = value;
-            });
-        }
-    });
-}
             function animate() {
 
 				// Render loop
@@ -451,7 +433,25 @@
 				stats.update();
 
 			}
-
+            function addBoneRotationControls(skeleton) {
+    const boneControls = {};
+    skeleton.traverse(function (bone) {
+        if (bone.isBone) {
+            boneControls[bone.name] = { rotationX: bone.rotation.x, rotationY: bone.rotation.y, rotationZ: bone.rotation.z };
+            const folder = panel.addFolder(bone.name);
+            folder.add(boneControls[bone.name], 'rotationX', -Math.PI, Math.PI).onChange(value => {
+                bone.rotation.x = value;
+            });
+            folder.add(boneControls[bone.name], 'rotationY', -Math.PI, Math.PI).onChange(value => {
+                bone.rotation.y = value;
+            });
+            folder.add(boneControls[bone.name], 'rotationZ', -Math.PI, Math.PI).onChange(value => {
+                bone.rotation.z = value;
+            });
+        }
+    });
+}
+            
 		</script>
 
 	</body>

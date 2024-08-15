@@ -98,7 +98,7 @@
 
 					model = gltf.scene;
 					scene.add( model );
-
+                    console.log('model',model)
 					model.traverse( function ( object ) {
 
 						if ( object.isMesh ) object.castShadow = true;

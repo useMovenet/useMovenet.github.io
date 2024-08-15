@@ -45,10 +45,10 @@
 
 			const crossFadeControls = [];
 
-			let currentBaseAction = 'idle';
+			let currentBaseAction = '';
 			const allActions = [];
 			const baseActions = {
-				idle: { weight: 1 },
+				idle: { weight: 0 },
 				walk: { weight: 0 },
 				run: { weight: 0 }
 			};
@@ -108,6 +108,9 @@
 					skeleton = new THREE.SkeletonHelper( model );
 					skeleton.visible = false;
 					scene.add( skeleton );
+                    logAllBones(skeleton);
+
+
 
 					const animations = gltf.animations;
 					mixer = new THREE.AnimationMixer( model );
@@ -175,7 +178,7 @@
 				window.addEventListener( 'resize', onWindowResize );
 
 			}
-
+          
 			function createPanel() {
 
 				const panel = new GUI( { width: 310 } );
@@ -184,7 +187,7 @@
 				const folder2 = panel.addFolder( 'Additive Action Weights' );
 				const folder3 = panel.addFolder( 'General Speed' );
                 const folder4 = panel.addFolder( 'Skeleton Visibility' ); // Add a new folder for skeleton controls
-                panelSettings.showSkeleton = false; // Initialize the setting for skeleton visibility
+                //panelSettings.showSkeleton = false; // Initialize the setting for skeleton visibility
 
 				panelSettings = {
 					'modify time scale': 1.0
@@ -229,6 +232,7 @@
 				}
 
 				folder3.add( panelSettings, 'modify time scale', 0.0, 1.5, 0.01 ).onChange( modifyTimeScale );
+                panelSettings.showSkeleton = false; // Initialize the setting for skeleton visibility
                 folder4.add(panelSettings, 'showSkeleton').onChange(function (value) {
 					skeleton.visible = value; // Toggle skeleton visibility based on checkbox
 				});
@@ -395,7 +399,13 @@
 				renderer.setSize( window.innerWidth, window.innerHeight );
 
 			}
-
+            function logAllBones(skeleton) {
+    skeleton.traverse(function (bone) {
+        if (bone.isBone) {
+            console.log(bone.name); // Log the name of each bone
+        }
+    });
+}
 			function animate() {
 
 				// Render loop

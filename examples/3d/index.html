@@ -109,6 +109,7 @@
 					skeleton.visible = false;
 					scene.add( skeleton );
                     logAllBones(skeleton);
+                    addBoneRotationControls(skeleton);
 
 
 
@@ -406,7 +407,25 @@
         }
     });
 }
-			function animate() {
+            function addBoneRotationControls(skeleton) {
+    const boneControls = {};
+    skeleton.traverse(function (bone) {
+        if (bone.isBone) {
+            boneControls[bone.name] = { rotationX: bone.rotation.x, rotationY: bone.rotation.y, rotationZ: bone.rotation.z };
+            const folder = panel.addFolder(bone.name);
+            folder.add(boneControls[bone.name], 'rotationX', -Math.PI, Math.PI).onChange(value => {
+                bone.rotation.x = value;
+            });
+            folder.add(boneControls[bone.name], 'rotationY', -Math.PI, Math.PI).onChange(value => {
+                bone.rotation.y = value;
+            });
+            folder.add(boneControls[bone.name], 'rotationZ', -Math.PI, Math.PI).onChange(value => {
+                bone.rotation.z = value;
+            });
+        }
+    });
+}
+            function animate() {
 
 				// Render loop
 

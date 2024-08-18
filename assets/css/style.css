@@ -35,6 +35,7 @@ body {
   }
   #info_counter {
     position: fixed;
+    display: none;
     top: 0;
     left: 0;
     color:  #fff;

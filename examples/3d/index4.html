@@ -117,7 +117,7 @@
 		<div class="row">
 			<div class="column" style="background-color:#aaa;">	
 	  <canvas id="canvas"></canvas>
-	  <video id="video" class="video-js vjs-fluid vjs-default-skin" preload="metadata">
+	  <video id="video" class="video-js vjs-fluid vjs-default-skin" preload="metadata"  type="video/mp4">
 	  	<source src="">
 	  </video>
 	</div>
@@ -131,7 +131,14 @@
 	</div>
 	<div id="view_3d"></div>
 	<div class="footer"><b>JS AI BODY TRACKER</b> v.1.0.0 | © 2022 Marcin "szczyglis" Szczyglinski | <a href="https://github.com/szczyglis-dev/js-ai-body-tracker" target="_blank">GitHUB</a></div>
-
+	<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const video2 = document.getElementById('video');
+            
+            // Automatically load the video and show the first frame
+            video2.load();
+        });
+    </script>
 	<!-- Load Tensor Flow -->
 	<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core"></script>
 	<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-converter"></script>

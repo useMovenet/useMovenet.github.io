@@ -21,22 +21,6 @@
 	<link rel="stylesheet" href="/assets/css/style.css">	
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.0.0/video-js.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.0.0/video.min.js"></script>
-	<style>
-		/* Create two equal columns that floats next to each other */
-.column {
-  float: left;
-  width: 50%;
-  padding: 10px;
-  height: 300px; /* Should be removed. Only for demonstration */
-}
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-	</style>
 </head>
 
 <body>
@@ -59,9 +43,9 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6">
-					<!--	<button type="button" id="source-camera" class="source-select btn btn-primary" data-source="camera" >WEBCAM</button>  
+					<!---->	<button type="button" id="source-camera" class="source-select btn btn-primary" data-source="camera" >WEBCAM</button>  
 						<button type="button" id="source-video" class="source-select btn btn-primary" data-source="video" >VIDEO</button>  
-				-->	</div>
+					</div>
 					<div class="col-md-6">
 						<div class="input-group mb-2">
 					        <div class="input-group-prepend">
@@ -120,19 +104,10 @@
 	<div class="mt-2 text-center" id="status"></div>
 
 	<div id="wrapper" class="container-fluid">		
-	 
-	  <div class="row">
-		<div class="column" style="background-color:#aaa;">
-			<canvas id="canvas"></canvas>
-			<video id="video" class="video-js vjs-fluid vjs-default-skin" preload="metadata">
-				<source src="">
-			</video>
-		</div>
-		<div class="column" style="background-color:#bbb;">
-		  <h2>Column 2</h2>
-		  <p>Some text..</p>
-		</div>
-	  </div>
+	  <canvas id="canvas"></canvas>
+	  <video id="video" class="video-js vjs-fluid vjs-default-skin" preload="metadata">
+	  	<source src="">
+	  </video>
 	  <div id="info_debug"></div>
 	  <div id="info_counter"></div>
 	</div>

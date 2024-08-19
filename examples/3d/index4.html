@@ -48,7 +48,7 @@
 	        </a>
 	    </div>
 	</div>
-	<div id="controls">
+	<div id="controls" style="display: none;">
 		<form method="GET">
 			<div class="container">
 				<div class="row">
@@ -121,9 +121,9 @@
 	  	<source src="">
 	  </video>
 	</div>
-	<div class="column" style="background-color:#aaa;">	
-	    <video id="video1" playsinline autoplay muted></video>
-    <canvas id="canvas1"></canvas>
+	<div class="column" style="background-color:#aaa; position: relative;">	
+	    <video id="video1" playsinline autoplay muted style="width: 100%; height: auto;"></video>
+	    <canvas id="canvas1" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></canvas>
 	</div>
 	</div>
 	  <div id="info_debug"></div>
@@ -404,19 +404,6 @@ if (keypoints[13].score > 0.3 && keypoints[15].score > 0.3) {
     ctx.lineWidth = 2; // Line width
     ctx.stroke();
 }
-ctx.beginPath();
-ctx.moveTo(0, canvas.height / 4); // Start at the middle of the canvas height
-ctx.lineTo(canvas.width, canvas.height / 4); // End at the middle of the canvas height
-ctx.strokeStyle = "red"; // Line color
-ctx.lineWidth = 3; // Line width
-ctx.stroke();
-
-ctx.beginPath();
-    ctx.moveTo(0, canvas.height * 0.75); // Start at 3/4 of the canvas height
-    ctx.lineTo(canvas.width, canvas.height * 0.75); // End at the full width of the canvas
-    ctx.strokeStyle = "red"; // Line color
-    ctx.lineWidth = 2; // Line width
-    ctx.stroke();
 }
 
 async function checkEyePosition(keypoints) {
@@ -424,59 +411,7 @@ async function checkEyePosition(keypoints) {
                     const rightEye = keypoints[1]; // Right Eye
                     const leftHip = keypoints[11]; // Left Hip
                     const rightHip = keypoints[12]; // Right Hip
-                    const thresholdY = canvas.height / 4;
-                    const redLineY = canvas.height * 0.75;
-                    if(leftHip.y > redLineY || rightHip.y > redLineY) {
-                     	   //////////////////
-
-                        const spacebarEvent = new KeyboardEvent('keyup', {
-        key: ' ',
-        code: 'Space',
-        keyCode: 32, // Deprecated, but still used in some cases
-        which: 32,   // Deprecated, but still used in some cases
-        bubbles: true // Allow the event to bubble up
-    });
-
-    document.dispatchEvent(spacebarEvent);
-
-
-
-                        //////////////////
-                    } else {
-                        const spacebarEvent = new KeyboardEvent('keydown', {
-        key: ' ',
-        code: 'Space',
-        keyCode: 32, // Deprecated, but still used in some cases
-        which: 32,   // Deprecated, but still used in some cases
-        bubbles: true // Allow the event to bubble up
-    });
-
-    document.dispatchEvent(spacebarEvent);
-
-                    }
-                    if (leftEye.y > thresholdY || rightEye.y > thresholdY) {
-                       
-                        const arrowDownEvent = new KeyboardEvent('keydown', {
-        key: 'ArrowDown',
-        code: 'ArrowDown',
-        keyCode: 40, // Deprecated, but still used in some cases
-        which: 40,   // Deprecated, but still used in some cases
-        bubbles: true // Allow the event to bubble up
-    });
-
-    document.dispatchEvent(arrowDownEvent);
-
-                    } else {
-                        const arrowDownReleaseEvent = new KeyboardEvent('keyup', {
-        key: 'ArrowDown',
-        code: 'ArrowDown',
-        keyCode: 40, // Deprecated, but still used in some cases
-        which: 40,   // Deprecated, but still used in some cases
-        bubbles: true // Allow the event to bubble up
-    });
-
-    document.dispatchEvent(arrowDownReleaseEvent);
-                    }
+                   
                 }
 
             detectPose();
@@ -508,14 +443,7 @@ if (poses.length > 0 && poses[0].keypoints) {
     drawKeypoints(poses[0].keypoints, ctx);
 
     // Check if keypoints 1 and 2 are below the red line
-    const redLineY = canvas.height / 4;
-    const infoDiv = document.getElementById('info1');
-    
-    if (poses[0].keypoints[1].y > redLineY && poses[0].keypoints[2].y > redLineY) {
-         console.log("Crouch")
-    } else {
-         console.log("Idle")
-    }
+   
 
     console.log("Current Keypoint Positions:", currentKeypointPositions);
 } else {

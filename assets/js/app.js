@@ -56,11 +56,6 @@ const app = {
 
         // update elements by source
         switch (source) {
-            case 'camera':
-                document.getElementById('video_src_area').style.display = "none";
-                document.getElementById('canvas').classList.add('camera');
-                break;
-
             case 'video':
                 document.getElementById('video_src_area').style.display = "block";
                 if (sourceVideo.trim() == '') {
@@ -79,22 +74,6 @@ const app = {
                 });
                 break;
 
-            case 'stream':
-                document.getElementById('video_src_area').style.display = "block";
-                if (sourceVideo.trim() == '') {
-                    sourceVideo = defaultStream;
-                }
-                document.querySelector('#video source').src = sourceVideo;
-                document.getElementById('video_src').value = sourceVideo;
-                document.getElementById('video_src_prefix').innerHTML = 'IPTV STREAM,m3u8';
-                document.getElementById('canvas').classList.add('clickable');
-
-                // change video source URL input
-                document.getElementById('btn_load_src').addEventListener('click', function() {
-                    const src = document.getElementById('video_src').value;
-                    tracker.loadStream(src);
-                });
-                break;
         };
 
         // ------------------------
@@ -103,15 +82,6 @@ const app = {
             app.toggleAI();
         });
 
-        // btn: DEBUG ON/OFF
-        document.getElementById('btn_toggle_debug').addEventListener('click', function() {
-            app.toggleDebug();
-        });
-
-        // btn: 3D VIEW ON/OFF
-        document.getElementById('btn_toggle_3d').addEventListener('click', function() {
-            app.toggle3D();
-        });
 
         // btn: VIDEO ON/OFF
         document.getElementById('btn_toggle_video').addEventListener('click', function() {

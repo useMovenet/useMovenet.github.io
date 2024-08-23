@@ -10,6 +10,22 @@
 			flex: 50%;
 			padding: 10px;
 		}
+		.mask-container {
+            
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+            mask-image: linear-gradient(to right, black, white); /* Optional */
+        }
+		video1, canvas1 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: auto;
+            height: 100%;
+            object-fit: cover; /* Ensures the video/canvas fills the container while maintaining aspect ratio */
+        }
 	</style>
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -121,9 +137,11 @@
 	  	<source src="">
 	  </video>
 	</div>
-	<div class="column" style="background-color:#aaa; position: relative;">	
+	<div class="column" style="background-color:#aaa; position: relative;">
+		<div class="mask-container">	
 	    <video id="video1" playsinline autoplay muted style="width: 100%; height: auto;"></video>
 	    <canvas id="canvas1" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></canvas>
+	</div>
 	</div>
 	</div>
 	  <div id="info_debug"></div>

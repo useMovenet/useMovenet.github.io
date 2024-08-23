@@ -17,15 +17,16 @@
             position: relative;
             mask-image: linear-gradient(to right, black, white); /* Optional */
         }
-		video1, canvas1 {
-            position: absolute;
+		.video1, .canvas1 {
+         /*   position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             width: auto;
             height: 100%;
             object-fit: cover; /* Ensures the video/canvas fills the container while maintaining aspect ratio */
-        }
+        */
+	}
 	</style>
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -138,9 +139,9 @@
 	  </video>
 	</div>
 	<div class="column" style="background-color:#aaa; position: relative;">
-		<div class="mask-container">	
-	    <video id="video1" playsinline autoplay muted style="width: 100%; height: auto;"></video>
-	    <canvas id="canvas1" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></canvas>
+		<div class="mask-container" style="width: 100%; max-width: 50vh; display: flex; justify-content: center; align-items: center;">	
+	    <video id="video1" playsinline autoplay muted style=" height: 100%;"></video>
+	    <canvas id="canvas1" style="position: absolute; top: 0; left: -100%; height: 100%;"></canvas>
 	</div>
 	</div>
 	</div>

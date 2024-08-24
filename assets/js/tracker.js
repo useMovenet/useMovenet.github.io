@@ -781,8 +781,10 @@ const tracker = {
         tracker.init();
 
         // setup video
-        tracker.video.autoPlay = true;
-        tracker.video.loop = true;
+        //tracker.video.autoPlay = false;
+        tracker.video.pause();
+        tracker.video.loop = false;
+       // tracker.video.volume = 0;
         tracker.container = {
             video: tracker.video,
             ready: true,

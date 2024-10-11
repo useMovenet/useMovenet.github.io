@@ -1,7 +1,7 @@
 const TelegramBot = require('node-telegram-bot-api');
 
 // Replace 'YOUR_BOT_TOKEN' with the token you got from BotFather
-const bot = new TelegramBot('YOUR_BOT_TOKEN', { polling: true });
+const bot = new TelegramBot('7750113572:AAH-EoGOG_K8FSw5-bl08ZGfcuVs5Bqr7q8', { polling: true });
 
 // Handle the /start command and send the game link
 bot.onText(/\/start/, (msg) => {
